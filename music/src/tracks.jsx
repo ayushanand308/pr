@@ -1,4 +1,4 @@
-const trakcs=({albums,setCurrentTrackAndAudio,set_playlist,currentTrack,handlePlayPause})=>{
+const trakcs=({albums,setCurrentTrackAndAudio,set_playlist,currentTrack,handlePlayPause,playlist})=>{
   return(
     <div className="album-list">
         {albums.map((track) => (
@@ -12,7 +12,7 @@ const trakcs=({albums,setCurrentTrackAndAudio,set_playlist,currentTrack,handlePl
             <div className="lowerCont">
               <h1>{track.name}</h1>
               <div className="buttons">
-                <button onClick={() => set_playlist(track)}>Add to Playlist</button>
+                <button onClick={() => set_playlist(track)}>{playlist.some(item => item.id === track.id) ?"Delete From Playlist":"Add to playlist"}</button>
                 <button
                   className="btn1"
                   onClick={() => setCurrentTrackAndAudio(track)}
