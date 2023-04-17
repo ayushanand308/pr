@@ -77,6 +77,9 @@ body {
   padding: 1.5rem;
   background-color: #1DB954;
   color: #FFFFFF;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 .header h1 {

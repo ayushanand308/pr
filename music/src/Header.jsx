@@ -7,7 +7,7 @@ const Header = ({title, search, setSearch, search_album,playlist,currentTrack}) 
   return (
     <div className="header">
       {title}
-      <Link to="/playlist" style={{color:'black'}}>Playlist</Link>
+      <Link to="/playlist" style={{color:'white',textDecoration:'none'}}>Playlist</Link>
       <Search search={search} setSearch={setSearch} search_album={search_album}/>
     </div>
   );

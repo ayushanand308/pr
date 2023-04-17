@@ -10,7 +10,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Router>
       <Routes>
         <Route path='/*' element={<App/>}></Route>
-        {/* <Route path='/playlist' element={<Playlist/>}></Route> */}
+        
       </Routes>
     </Router>
   </React.StrictMode>,
