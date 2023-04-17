@@ -139,8 +139,18 @@ function App() {
 	};
 	
 	const set_playlist = (track) => {
-		setPlaylist([...playlist, track]);
+		if (playlist.some(item => item.id === track.id)  ) {
+			delete_from_playlist(track);
+		} else {
+			setPlaylist([...playlist, track]);
+		}
 	};
+
+	const delete_from_playlist=(track)=>{
+		const updatedList=playlist.filter((song)=>song.id!==track.id);
+		setPlaylist(updatedList);
+	}
+	
 	
 	return (
 		<div className="App">
@@ -158,7 +168,8 @@ function App() {
 					setCurrentTrackAndAudio={setCurrentTrackAndAudio}
 					set_playlist={set_playlist}
 					currentTrack={currentTrack}
-					handlePlayPause={handlePlayPause}/>}>
+					handlePlayPause={handlePlayPause}
+					playlist={playlist}/>}>
 				</Route>
 				<Route path='/playlist' element={<Playlist
 					playlist={playlist}

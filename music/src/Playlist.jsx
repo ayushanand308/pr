@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 const Playlist=({playlist,set_playlist,setCurrentTrackAndAudio,handlePlayPause,currentTrack})=>{
     return(
         <div className="album-list">
-        {playlist.map((track) => (
+        {playlist.length!==0?(playlist.map((track) => (
           <div className="card" key={track.id}>
             <img
               src={track.album.images[0].url}
@@ -13,7 +13,7 @@ const Playlist=({playlist,set_playlist,setCurrentTrackAndAudio,handlePlayPause,c
             <div className="lowerCont">
               <h1>{track.name}</h1>
               <div className="buttons">
-                <button onClick={() => set_playlist(track)}>Add to Playlist</button>
+                <button onClick={() => set_playlist(track)}>{playlist.some(item => item.id === track.id)?"Delete From Playlist":"Add to playlist"}</button>
                 <button
                   className="btn1"
                   onClick={() => setCurrentTrackAndAudio(track)}
@@ -28,7 +28,7 @@ const Playlist=({playlist,set_playlist,setCurrentTrackAndAudio,handlePlayPause,c
               </div>
             </div>
           </div>
-        ))}
+        ))): <p style={{display:'flex',justifyContent:"center",alignItems:'center'}}>Playlist Empty</p> }
       </div>
     )
 }
