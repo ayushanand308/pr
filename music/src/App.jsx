@@ -13,16 +13,32 @@ function App() {
 	const [accessToken, setAccessToken] = useState('');
 	const [albums, setAlbums] = useState(() => {
 		const storedAlbums = localStorage.getItem('albums');
-		return storedAlbums ? JSON.parse(storedAlbums) : [];
-	});
+
+		try {
+		  return storedAlbums ? JSON.parse(storedAlbums) : [];
+
+		} catch (error) {
+		  console.error('Error parsing playlist:', error);
+		  return [];
+		}
+	  });
+	  
 	const [isLoading, setIsLoading] = useState(true);
 	const [currentTrack, setCurrentTrack] = useState(null);
 	const [audio, setAudio] = useState(null);
 	const [recommended,setRecommended]=useState([]);
-	const [playlist,setPlaylist]=useState(() => {
+	const [playlist, setPlaylist] = useState(() => {
 		const storedPlaylist = localStorage.getItem('playlist');
-		return storedPlaylist? JSON.parse(storedPlaylist):[];
-	});
+		console.log(storedPlaylist)
+		try {
+
+		  return storedPlaylist ? JSON.parse(storedPlaylist) : [];
+		} catch (error) {
+		  console.error('Error parsing playlist:', error);
+		  return [];
+		}
+	  });
+	  
 	
 	useEffect(() => {
 		let authParameters = {

@@ -6,9 +6,11 @@ import { Route, Routes, Router } from "react-router-dom";
 const Header = ({title, search, setSearch, search_album,playlist,currentTrack}) => {
   return (
     <div className="header">
+      <div>
       {title}
-      <Link to="/playlist" style={{color:'white',textDecoration:'none'}}>Playlist</Link>
-      <Search search={search} setSearch={setSearch} search_album={search_album}/>
+      <Link to="/playlist" style={{color:'white',textDecoration:'none',marginLeft:"2rem"}}>Playlist</Link>
+      </div>
+      <Search className="" search={search} setSearch={setSearch} search_album={search_album}/>
     </div>
   );
 };

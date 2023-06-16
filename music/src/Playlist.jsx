@@ -11,9 +11,9 @@ const Playlist=({playlist,set_playlist,setCurrentTrackAndAudio,handlePlayPause,c
               width="200"
             />
             <div className="lowerCont">
-              <h1>{track.name}</h1>
+            <h1 className="cardh1">{track.name.split(/[(,:]/)[0].trim()}</h1>
               <div className="buttons">
-                <button onClick={() => set_playlist(track)}>{playlist.some(item => item.id === track.id)?"Delete From Playlist":"Add to playlist"}</button>
+                <button onClick={() => set_playlist(track)}>{playlist.some(item => item.id === track.id)?"Delete":"Add to playlist"}</button>
                 <button
                   className="btn1"
                   onClick={() => setCurrentTrackAndAudio(track)}

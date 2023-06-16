@@ -9,7 +9,6 @@ const Search=({search,setSearch,search_album})=>{
             value={search}
             onChange={(e)=>setSearch(e.target.value)}
             />
-            <button className="searchButton" onClick={search_album}></button>
         </form>
     )
 }

@@ -10,9 +10,10 @@ const trakcs=({albums,setCurrentTrackAndAudio,set_playlist,currentTrack,handlePl
               width="200"
             />
             <div className="lowerCont">
-              <h1>{track.name}</h1>
+              {console.log(track.name)}
+              <h1>{track.name.split(/[(,:]/)[0].trim()}</h1>
               <div className="buttons">
-                <button onClick={() => set_playlist(track)}>{playlist.some(item => item.id === track.id) ?"Delete From Playlist":"Add to playlist"}</button>
+                <button onClick={() => set_playlist(track)}>{playlist.some(item => item.id === track.id) ?"Delete":"Add to playlist"}</button>
                 <button
                   className="btn1"
                   onClick={() => setCurrentTrackAndAudio(track)}
