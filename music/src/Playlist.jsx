@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom"
 const Playlist=({playlist,set_playlist,setCurrentTrackAndAudio,handlePlayPause,currentTrack})=>{
     return(
         <div className="album-list">
         {playlist.length!==0?(playlist.map((track) => (
           <div className="card" key={track.id}>
-            <img
+{/*             {console.log(track.id)};
+ */}            <img
               src={track.album.images[0].url}
               alt=""
               height="200"
@@ -16,7 +16,7 @@ const Playlist=({playlist,set_playlist,setCurrentTrackAndAudio,handlePlayPause,c
                 <button onClick={() => set_playlist(track)}>{playlist.some(item => item.id === track.id)?"Delete":"Add to playlist"}</button>
                 <button
                   className="btn1"
-                  onClick={() => setCurrentTrackAndAudio(track)}
+                  onClick={() => {setCurrentTrackAndAudio(track.id);console.log(track.id+"this here--")}}
                 >
                   Choose song
                 </button>
